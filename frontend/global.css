@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap");
+@import url(reset.css);
+body {
+  display: -ms-grid;
+  display: grid;
+  height: 100vh;
+  -ms-grid-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  background: lightskyblue;
+}
+
+nav {
+  background: lightblue;
+}
+
+main {
+  background: lightgreen;
+}
+
+aside {
+  background: lightpink;
+}
+
+footer {
+  background: lightsalmon;
+  color: white;
+}
+
+form input {
+  width: 100%;
+}
+
+form fieldset {
+  border-color: white;
+  border-style: solid;
+}
+
+form fieldset legend {
+  color: white;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.content {
+  background: lightseagreen;
+}
+
+.logo {
+  font-weight: 600;
+  -webkit-margin-start: 0.5rem;
+          margin-inline-start: 0.5rem;
+}
+
+header,
+footer,
+main,
+aside,
+nav,
+.content {
+  padding: 1rem;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex.stretch {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.flex.center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.absolute-center {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+@media print {
+  header,
+  footer,
+  main,
+  aside,
+  nav {
+    background: transparent;
+  }
+  nav,
+  footer,
+  aside {
+    display: none;
+  }
+}
+/*# sourceMappingURL=global.css.map */

@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap");
+@import url(reset.css);
+
+// Variables
+$gap: 1rem;
+$half-gap: $gap/2;
+$main-font: "Poppins", sans-serif;
+
+// Breakpoints
+$mobile: 720px;
+$tablet: 960px;
+$laptop: 1360px;
+$desktop: 1920px;
+
+// Semantic elements
+body {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  font-family: $main-font;
+}
+
+header {
+  background: lightskyblue;
+}
+
+nav {
+  background: lightblue;
+}
+
+main {
+  background: lightgreen;
+}
+
+aside {
+  background: lightpink;
+}
+
+footer {
+  background: lightsalmon;
+  color: white;
+}
+
+form {
+  input {
+    width: 100%;
+  }
+
+  fieldset {
+    border-color: white;
+    border-style: solid;
+
+    legend {
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
+
+// Titles
+// Use only one h1 element per page or view
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+// Custom elements
+.container {
+  max-width: $laptop;
+  margin: 0 auto;
+}
+
+.content {
+  background: lightseagreen;
+}
+
+.logo {
+  font-weight: 600;
+  margin-inline-start: $half-gap;
+}
+
+// Uniform padding for elements
+header,
+footer,
+main,
+aside,
+nav,
+.content {
+  padding: $gap;
+}
+
+// Flex helpers
+.flex {
+  display: flex;
+
+  &.stretch {
+    align-items: stretch;
+  }
+  &.center {
+    align-items: center;
+  }
+}
+
+// Center the child vertically and horizontally
+.absolute-center {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+// Optimize print
+@media print {
+  header,
+  footer,
+  main,
+  aside,
+  nav {
+    background: transparent;
+  }
+
+  nav,
+  footer,
+  aside {
+    display: none;
+  }
+}
