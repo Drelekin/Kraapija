@@ -4,13 +4,50 @@
 // Variables
 $gap: 1rem;
 $half-gap: $gap/2;
+$tiny-gap: $gap/6;
 $main-font: "Poppins", sans-serif;
+
+// Colors
+$white: white;
+$primary: rgb(69, 131, 224);
+
+$primary-highlight: $primary;
+$primary-highlight-hover: lighten($primary, 15%);
+
+$bg-main: #e8e9eb;
+$bg-header: darken($bg-main, 75%);
+$bg-nav: darken($bg-main, 5%);
+$bg-footer: $bg-header;
 
 // Breakpoints
 $mobile: 720px;
 $tablet: 960px;
 $laptop: 1360px;
 $desktop: 1920px;
+
+// Borders
+$round: $tiny-gap;
+$rounded: $half-gap;
+$curved: $gap;
+$shadow-direction: 0px 1px;
+$shadow-depth: 2px;
+$clr-light-border: #acada8;
+$clr-dark-border: #746d69;
+
+// Add gap to elements
+header,
+footer,
+main,
+aside,
+nav,
+fieldset {
+  padding: $gap;
+}
+
+// Add half gap to elements
+input {
+  padding: $half-gap;
+}
 
 // Semantic elements
 body {
@@ -20,16 +57,32 @@ body {
   font-family: $main-font;
 }
 
+a {
+  color: $primary-highlight;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-highlight-hover;
+  }
+  &:focus {
+    color: $primary-highlight-hover;
+    outline: 2px solid $primary-highlight-hover;
+    border-color: $primary-highlight;
+    outline-offset: $tiny-gap;
+    border-radius: $round;
+  }
+}
+
 header {
-  background: lightskyblue;
+  background: $bg-header;
 }
 
 nav {
-  background: lightblue;
+  background: $bg-nav;
 }
 
 main {
-  background: lightgreen;
+  background: $bg-main;
 }
 
 aside {
@@ -37,22 +90,33 @@ aside {
 }
 
 footer {
-  background: lightsalmon;
-  color: white;
+  color: $white;
+  background: $bg-footer;
 }
 
 form {
   input {
     width: 100%;
+    border-radius: $rounded;
+    border: 1px solid $clr-dark-border;
+
+    &:focus {
+      outline: 1px solid $primary-highlight-hover;
+      border-color: $primary-highlight-hover;
+      outline-offset: 0;
+    }
   }
 
   fieldset {
-    border-color: white;
+    border-color: $clr-light-border;
+    border-radius: $rounded;
     border-style: solid;
+    border-width: 1px;
 
     legend {
-      color: white;
-      font-weight: bold;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0 $half-gap;
     }
   }
 }
@@ -70,39 +134,85 @@ h1 {
   margin: 0 auto;
 }
 
-.content {
-  background: lightseagreen;
-}
-
 .logo {
+  color: $white;
   font-weight: 600;
   margin-inline-start: $half-gap;
-}
-
-// Uniform padding for elements
-header,
-footer,
-main,
-aside,
-nav,
-.content {
-  padding: $gap;
 }
 
 // Flex helpers
 .flex {
   display: flex;
 
+  &.gap {
+    gap: $gap;
+  }
+  &.wrap {
+    flex-wrap: wrap;
+  }
   &.stretch {
     align-items: stretch;
   }
   &.center {
     align-items: center;
   }
+  .justify {
+    &-end {
+      justify-content: flex-end;
+    }
+    &-space-between {
+      justify-content: space-between;
+    }
+  }
+}
+
+.col-100 {
+  flex: 1 0 100%;
+}
+.col-90 {
+  flex: 1 0 90%;
+}
+.col-80 {
+  flex: 0 0 80%;
+}
+.col-70 {
+  flex: 0 0 70%;
+}
+.col-60 {
+  flex: 0 0 60%;
+}
+.col-50 {
+  flex: 0 0 50%;
+}
+.col-40 {
+  flex: 0 0 40%;
+}
+.col-30 {
+  flex: 0 0 30%;
+}
+.col-20 {
+  flex: 0 0 20%;
+}
+.col-10 {
+  flex: 0 0 10%;
+}
+.col-33 {
+  flex: 0 0 calc(100% / 3);
+}
+.col-auto {
+  flex: 1;
+}
+
+.box {
+  background: $white;
+  padding: $gap;
+  border-radius: $curved;
+  box-shadow: $shadow-direction $shadow-depth $clr-dark-border,
+    0px 0px 5px #cccdc6;
 }
 
 // Center the child vertically and horizontally
-.absolute-center {
+.v-center {
   display: grid;
   place-items: center;
   height: 100%;
@@ -111,10 +221,7 @@ nav,
 // Optimize print
 @media print {
   header,
-  footer,
-  main,
-  aside,
-  nav {
+  main {
     background: transparent;
   }
 
@@ -123,4 +230,9 @@ nav,
   aside {
     display: none;
   }
+}
+
+// Color helpers
+.white {
+  color: $white;
 }
